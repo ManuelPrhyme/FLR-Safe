@@ -97,19 +97,19 @@ export const useWeb3 = () => {
             params: [
               {
                 chainId: `0x${FLR_CHAIN_ID.toString(16)}`,
-                chainName: 'CrossFi Testnet',
+                chainName: 'Flare Testnet Coston 2',
                 nativeCurrency: {
-                  name: 'CrossFi',
+                  name: 'Flare',
                   symbol: 'FLR',
                   decimals: 18,
                 },
-                rpcUrls: ['https://rpc.testnet.ms'],
-                blockExplorerUrls: ['https://test.xfiscan.com'],
+                rpcUrls: ['https://coston2-api.flare.network/ext/C/rpc'],
+                blockExplorerUrls: ['https://coston2.testnet.flarescan.com'],
               },
             ],
           });
         } catch (addError) {
-          console.error('Error adding CrossFi network:', addError);
+          console.error('Error adding Flare network:', addError);
         }
       }
     }
