@@ -1,2 +1,1 @@
-# FLR-Safe
-Flare Savings Safe
+# XFI-Safe
