@@ -111,7 +111,6 @@ function App() {
             <div className="flex items-center">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-flare-gradient rounded-2xl flex items-center justify-center shadow-lg">
-                  <Vote className="w-7 h-7 text-white" />
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-gradient-flare">FLR-Safe</h1>
@@ -297,17 +296,6 @@ function App() {
             <p className="text-gray-600 mb-6">
               Built with ❤️ for the Flare Network community
             </p>
-            <div className="bg-gray-50 rounded-2xl p-4 border border-gray-200">
-              <p className="text-xs text-gray-500 mb-2 font-semibold">Smart Contract</p>
-              <a 
-                className="text-flare-600 hover:text-flare-700 font-mono text-sm transition-colors" 
-                href="https://test.xfiscan.com/address/0xc753e7cb4cc1f26c0bcc363d2106d22690579f53"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                0xc753...9f53
-              </a>
-            </div>
           </div>
         </footer>
       </main>
