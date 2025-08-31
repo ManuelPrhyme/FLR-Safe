@@ -64,35 +64,16 @@ export const useDelegationContract = (signer: ethers.JsonRpcSigner | null) => {
     try {
       setLoading(true);
 
-      // Load stewards
-      const stewardsData = await contract.getActiveStewards();
-      const stewardsList: Steward[] = stewardsData[0].map((address: string, index: number) => ({
-        address,
-        name: stewardsData[1][index],
-        delegationCount: Number(stewardsData[2][index])
-      }));
-      setStewards(stewardsList);
-
-      // Load delegation stats
-      const statsData = await contract.getDelegationStats();
+      // Initialize with empty data since these functions don't exist in the contract
+      setStewards([]);
       setStats({
-        total: Number(statsData[0]),
-        self: Number(statsData[1]),
-        steward: Number(statsData[2]),
-        custom: Number(statsData[3])
+        total: 0,
+        self: 0,
+        steward: 0,
+        custom: 0
       });
-
-      // Load user's delegation info if signer is available
-      if (signer) {
-        const userAddress = await signer.getAddress();
-        const delegationData = await contract.getDelegation(userAddress);
-        setDelegationInfo({
-          delegate: delegationData[0],
-          timestamp: Number(delegationData[1]),
-          delegationType: delegationData[2],
-          active: delegationData[3]
-        });
-      }
+      setDelegationInfo(null);
+      
     } catch (error) {
       console.error('Error loading contract data:', error);
     } finally {
@@ -121,7 +102,7 @@ export const useDelegationContract = (signer: ethers.JsonRpcSigner | null) => {
       return tx;
       
     } catch (error) {
-      console.error('Error Depositing XFI Tokens:', error);
+      console.error('Error Depositing FLR Tokens:', error);
       throw error;
     } finally {
       setLoading(false);

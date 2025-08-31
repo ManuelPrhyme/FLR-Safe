@@ -18,45 +18,60 @@ export const WalletConnection: React.FC<WalletConnectionProps> = ({
 }) => {
   if (!account) {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-        <div className="text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-            <Wallet className="w-8 h-8 text-blue-600" />
-          </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">
-            Connect Your Wallet
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Connect your wallet to start earn on your FLR
-          </p>
-          <button
-            onClick={connectWallet}
-            disabled={isConnecting}
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:scale-100"
-          >
-            {isConnecting ? 'Connecting...' : 'Connect Wallet'}
-          </button>
+      <div className="flare-card p-8 text-center animate-fade-in">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-flare-gradient rounded-3xl mb-6 shadow-xl">
+          <Wallet className="w-10 h-10 text-white" />
         </div>
+        <h3 className="text-2xl font-bold text-gray-900 mb-3">
+          Connect Your Wallet
+        </h3>
+        <p className="text-gray-600 mb-8 text-lg">
+          Connect your wallet to start earning rewards on your FLR tokens
+        </p>
+        <button
+          onClick={connectWallet}
+          disabled={isConnecting}
+          className="flare-button w-full py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+        >
+          {isConnecting ? (
+            <>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2 inline-block"></div>
+              Connecting...
+            </>
+          ) : (
+            <>
+              <Wallet className="w-5 h-5 mr-2 inline" />
+              Connect Wallet
+            </>
+          )}
+        </button>
+        <p className="text-xs text-gray-500 mt-4">
+          Supports MetaMask and other Web3 wallets
+        </p>
       </div>
     );
   }
 
   if (!isOnCrossFi) {
     return (
-      <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
-        <div className="flex items-center">
-          <AlertCircle className="w-6 h-6 text-yellow-600 mr-3" />
-          <div className="flex-1">
-            <h3 className="text-lg font-semibold text-yellow-800">
-              Switch to Flare Coston 2
-            </h3>
-            <p className="text-yellow-700 mt-1">
-              This application requires the Cross Finance network to function properly
-            </p>
+      <div className="bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-200 rounded-2xl p-6 animate-slide-up">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-2xl mr-4">
+              <AlertCircle className="w-6 h-6 text-orange-600" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-orange-800">
+                Switch to Flare Network
+              </h3>
+              <p className="text-orange-700 text-sm mt-1">
+                Please switch to Flare Coston 2 testnet to continue
+              </p>
+            </div>
           </div>
           <button
             onClick={switchtoCrossFi}
-            className="bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+            className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 transform hover:-translate-y-0.5"
           >
             Switch Network
           </button>
@@ -66,14 +81,26 @@ export const WalletConnection: React.FC<WalletConnectionProps> = ({
   }
 
   return (
-    <div className="bg-green-50 border border-green-200 rounded-xl p-4">
-      <div className="flex items-center">
-        <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-        <div>
-          <p className="text-green-800 font-medium">Connected on <b>Flare Testnet Coston 2 </b></p>
-          <p className="text-green-600 text-sm">
-            {account.slice(0, 6)}...{account.slice(-4)}
-          </p>
+    <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl p-6 animate-slide-up">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center">
+          <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-2xl mr-4">
+            <div className="w-6 h-6 bg-green-500 rounded-full relative">
+              <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20"></div>
+            </div>
+          </div>
+          <div>
+            <p className="text-green-800 font-bold text-lg">
+              ✓ Connected to Flare Network
+            </p>
+            <p className="text-green-600 text-sm font-mono bg-green-100 px-3 py-1 rounded-lg mt-1 inline-block">
+              {account.slice(0, 8)}...{account.slice(-6)}
+            </p>
+          </div>
+        </div>
+        <div className="text-right">
+          <p className="text-green-700 text-sm font-semibold">Flare Coston 2</p>
+          <p className="text-green-600 text-xs">Testnet</p>
         </div>
       </div>
     </div>
