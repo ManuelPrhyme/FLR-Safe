@@ -100,7 +100,7 @@ export const useWeb3 = () => {
                 chainName: 'CrossFi Testnet',
                 nativeCurrency: {
                   name: 'CrossFi',
-                  symbol: 'XFI',
+                  symbol: 'FLR',
                   decimals: 18,
                 },
                 rpcUrls: ['https://rpc.testnet.ms'],
