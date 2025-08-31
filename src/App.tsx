@@ -11,12 +11,13 @@ import { deposit_amount } from './components/DepositForm';
 import { Coins } from 'lucide-react';
 import { createPublicClient, http, formatEther  } from 'viem';
 import { CONTRACT_ABI,CONTRACT_ADDRESS, CrossFi } from './components/contractConfig';
+import {flareTestnet} from 'viem/chains'
 import { ethers } from 'ethers';
 import {RunUP} from './hooks/useDelegationContract'
 
 
 const PublicClient =  createPublicClient({
-  chain: CrossFi,
+  chain: flareTestnet,
   transport: http()
 })
 
@@ -51,7 +52,6 @@ function App() {
   const [Unstake,setUnstake] = useState<any>();
 
 
-  
 
   useEffect(()=>{
 
@@ -120,7 +120,7 @@ function App() {
                   <Vote className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900">XFI-Safe</h1>
+                  <h1 className="text-xl font-bold text-gray-900">FLR-Safe</h1>
                   <p className="text-sm text-gray-600">Earn reward on your deposit</p>
                 </div>
               </div>
@@ -178,7 +178,7 @@ function App() {
                  
                   <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 
                   to-purple-600">
-                  In Stake: <span className=" font-bold text-gray-900 mb-4"> {Stake ? Number(formatEther(Stake)).toFixed(3) : ".."} XFI </span>
+                  In Stake: <span className=" font-bold text-gray-900 mb-4"> {Stake ? Number(formatEther(Stake)).toFixed(3) : ".."} FLR </span>
                 </h3>
 
                 </div>

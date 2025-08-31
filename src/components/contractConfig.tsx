@@ -1,24 +1,24 @@
 import { defineChain } from "viem";
 
 
-const Contract_Finale = "0x1b5bbc25f41cbb4f77852c35e5bd422a7eb061aa"
+const Contract_Finale = "0x8D48E6088239bbc8Bda6073a377a272B44f45DED"
 export const CONTRACT_ADDRESS =  Contract_Finale;
 
 export const CrossFi = defineChain({
-  id: 4158,
-  name: 'CrossFi Testnet',
+  id: 114,
+  name: 'Flare Testnet Coston2',
   nativeCurrency: {
     decimals: 18,
-    name: 'CrossFi',
-    symbol: 'XFI',
+    name: 'Flare',
+    symbol: 'FLR',
   },
   rpcUrls: {
-    default: { http: ['https://rpc.mainnet.ms'] },
+    default: { http: ['https://flare-testnet-coston2.rpc.thirdweb.com'] },
   },
   blockExplorers: {
     default: {
-      name: 'XFI Scan',
-      url: 'https://xfiscan.com'
+      name: 'RouteScan',
+      url: 'https://flarescan.com/'
     },
   },
 })

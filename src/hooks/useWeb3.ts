@@ -14,7 +14,7 @@ export const useWeb3 = () => {
   const [isConnecting, setIsConnecting] = useState(false);
   const [chainId, setChainId] = useState<number | null>(null);
 
-  const CROSS_FINANCE_CHAIN_ID = 4158; 
+  const FLR_CHAIN_ID = 114; 
 
   useEffect(() => {
     if (window.ethereum) {
@@ -73,7 +73,7 @@ export const useWeb3 = () => {
       setChainId(Number(network.chainId));
 
       
-      if (Number(network.chainId) !== CROSS_FINANCE_CHAIN_ID) {
+      if (Number(network.chainId) !== FLR_CHAIN_ID) {
         await switchtoCrossFi();
       }
     } catch (error) {
@@ -87,7 +87,7 @@ export const useWeb3 = () => {
     try {
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: `0x${CROSS_FINANCE_CHAIN_ID.toString(16)}` }],
+        params: [{ chainId: `0x${FLR_CHAIN_ID.toString(16)}` }],
       });
     } catch (switchError: any) {
       if (switchError.code === 4902) {
@@ -96,7 +96,7 @@ export const useWeb3 = () => {
             method: 'wallet_addEthereumChain',
             params: [
               {
-                chainId: `0x${CROSS_FINANCE_CHAIN_ID.toString(16)}`,
+                chainId: `0x${FLR_CHAIN_ID.toString(16)}`,
                 chainName: 'CrossFi Testnet',
                 nativeCurrency: {
                   name: 'CrossFi',
@@ -145,7 +145,7 @@ export const useWeb3 = () => {
     chainId,
     isConnecting,
     isConnected: !!account,
-    isOnCrossFi: chainId === CROSS_FINANCE_CHAIN_ID,
+    isOnCrossFi: chainId === FLR_CHAIN_ID,
     connectWallet,
     switchtoCrossFi,
     disconnect,

@@ -27,7 +27,7 @@ export const WalletConnection: React.FC<WalletConnectionProps> = ({
             Connect Your Wallet
           </h3>
           <p className="text-gray-600 mb-6">
-            Connect your wallet to start earn on your XFI
+            Connect your wallet to start earn on your FLR
           </p>
           <button
             onClick={connectWallet}
@@ -48,7 +48,7 @@ export const WalletConnection: React.FC<WalletConnectionProps> = ({
           <AlertCircle className="w-6 h-6 text-yellow-600 mr-3" />
           <div className="flex-1">
             <h3 className="text-lg font-semibold text-yellow-800">
-              Switch to Cross Finance
+              Switch to Flare Coston 2
             </h3>
             <p className="text-yellow-700 mt-1">
               This application requires the Cross Finance network to function properly
@@ -70,7 +70,7 @@ export const WalletConnection: React.FC<WalletConnectionProps> = ({
       <div className="flex items-center">
         <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
         <div>
-          <p className="text-green-800 font-medium">Connected on Cross Finance </p>
+          <p className="text-green-800 font-medium">Connected on <b>Flare Testnet Coston 2 </b></p>
           <p className="text-green-600 text-sm">
             {account.slice(0, 6)}...{account.slice(-4)}
           </p>
